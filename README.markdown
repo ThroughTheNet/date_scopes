@@ -1,6 +1,7 @@
 #Date_Scopes - an ActiveRecord extension for automatic date-based scopes
 
 **Homepage/Github**:  [github.com/ThroughTheNet/date_scopes](https://github.com/ThroughTheNet/date_scopes)  
+**Documentation**:    [rubydoc.info](http://rubydoc.info/gems/date_scopes/0.1/frames)  
 **Author**:           Jonathan Davies ([ThroughTheNet](http://throughthnet.com))  
 **Contact**:          [info@throughthenet.com](mailto:info@throughthenet.com)  
 **License**:          [MIT License](http://opensource.org/licenses/mit-license.php)  
@@ -80,3 +81,17 @@ Then the `Order` class would have the following scopes:
     not_published
     
 **NOTE**: The column option actually takes the verb that will form part of the various dynamic methods, and then adds `_at` to that name to find the name of the database column. In future it should be made to accept either but the current interface will not be broken. If the correct database column for the `:column` option is not found, the macro method will raise an exception.
+
+##Contributing
+
+This it github. You know the score!
+
+1. Fork
+2. Hack
+3. Push
+4. Pull
+
+Tests are set up with Rspec2, `bundle exec watchr spec.watchr` is reccommended for continous testing goodness.
+
+## Copyright
+Copyright (c) 2010 ThroughTheNet. MIT Licensed. See the {file:LICENSE} file
