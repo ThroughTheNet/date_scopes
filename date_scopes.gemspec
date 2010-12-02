@@ -11,6 +11,7 @@ Gem::Specification.new do |s|
   s.homepage    = "https://github.com/ThroughTheNet/date_scopes"
   s.summary     = "An ActiveRecord extension for automatic date-based scopes"
   s.description = "Adds a simple macro, has_date_scopes to ActiveRecord. When used it adds a number of convinience scopes to your models relating to a whether a particular date field on that model is in the past or future. It also has other handy features."
+  s.has_rdoc    = "yard"
 
   s.required_rubygems_version = ">= 1.3.6"
 
