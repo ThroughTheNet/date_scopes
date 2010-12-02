@@ -1,12 +1,53 @@
+# Copyright (c) 2010 ThroughTheNet
+  
+# Permission is hereby granted, free of charge, to any person obtaining a copy
+# of this software and associated documentation files (the "Software"), to deal
+# in the Software without restriction, including without limitation the rights
+# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+# copies of the Software, and to permit persons to whom the Software is
+# furnished to do so, subject to the following conditions:
+  
+# The above copyright notice and this permission notice shall be included in
+# all copies or substantial portions of the Software.
+  
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+# THE SOFTWARE.
+
 require 'active_record'
+
 module DateScopes
   
   module ClassMethods
+  
+    # Adds a number of dynamic scopes and a virtual accessor to your model.
+    # Functionality is detailed more fully in the {file:README.markdown README} for this gem, but a brief demo is given here:
+    # @example
+    #    class Post < ActiveRecord::Base
+    #      has_date_scopes
+    #    end
+    #
+    #    Post.published                  #posts with published_at before Time.now
+    #    Post.unpublished                #posts with published_at after Time.now
+    #    post = Post.new
+    #    post.published = true           #virtual setter, sets published_at to Time.now
+    #    post.published_at == Time.now   #true
+    #    post.published? == true         #true
+    #    post.published = false          #virtual setter, sets published_at to nil
+    #    post.published_at.nil?          #true
+    # @param [Hash] opts The options
+    # @option opts [Symbol, String] :column The verb that will be used to form the names of the scopes, and corresponds to a database column (if :column is `deleted` then there must be a database column `deleted_at`.) Defaults to `published` and a corresponding database column `published_at`
+    # @raise [ActiveRecordError] An exception will be raised if the required column is not present, telling you the name of the column it expects.
+
     def has_date_scopes(options = {})
       options.to_options!.reverse_merge! :column => 'published'
       column_name = "#{options[:column]}_at"
       
-      raise "Could not find the #{column_name} column on the #{table_name} table" unless column_names.include? column_name
+      raise new ActiveRecordError("Could not find the #{column_name} column on the #{table_name} table") unless column_names.include? column_name
       
       on_scope_sql = "#{table_name}.#{column_name} <= ?"
       
@@ -19,8 +60,11 @@ module DateScopes
       
       define_method options[:column].to_s+'=' do |value|
         if value && !self[column_name]
+
           self[column_name] = Time.now
+
         elsif !value
+
           self[column_name] = nil
         end
       end
