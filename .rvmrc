@@ -1,1 +1,1 @@
-rvm gemset use date_scopes
+rvm use --create ree@date_scopes

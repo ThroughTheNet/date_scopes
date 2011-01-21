@@ -8,7 +8,7 @@ GIT
 PATH
   remote: .
   specs:
-    date_scopes (0.0.1)
+    date_scopes (0.1.2)
       activerecord (~> 3)
 
 GEM

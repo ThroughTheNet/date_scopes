@@ -11,7 +11,7 @@
 ##Description
 
 
-Date_Scopes is a rubygem that adds a simple macro, {DateScopes::ClassMethods#has_date_scopes has_date_scopes} to ActiveRecord. When used it adds a number of convinience scopes to your models relating to a whether a particular date field on that model is in the past or future. It also has other handy features.
+Date\_Scopes is a rubygem that adds a simple macro, {DateScopes::ClassMethods#has\_date\_scopes has\_date\_scopes} to ActiveRecord. When used it adds a number of convinience scopes to your models relating to a whether a particular date field on that model is in the past or future. It also has other handy features.
 
 Note that it does *not* depend on the whole of Rails, but is a pure ActiveRecord extension. As such it can be used wherever you use ActiveRecord, be it in Sinatra or whatever other mad thing you've cooked up.
 
@@ -25,7 +25,7 @@ This gem will neaten up your model code whenever your model instances need to be
 
 ###Dynamic Scopes
 
-Assuming that the model has a datetime field called `published_at`, one can simply call the {DateScopes::ClassMethods#has_date_scopes has_date_scopes} method in the model defintion like so:
+Assuming that the model has a datetime field called `published_at`, one can simply call the {DateScopes::ClassMethods#has\_date\_scopes has\_date\_scopes} method in the model defintion like so:
 
     class Post < ActiveRecord::Base
       has_date_scopes
@@ -77,8 +77,8 @@ Then the `Order` class would have the following scopes:
     
     unfilled
     nonfilled
-    non_published
-    not_published
+    non_filled
+    not_filled
     
 **NOTE**: The column option actually takes the verb that will form part of the various dynamic methods, and then adds `_at` to that name to find the name of the database column. In future it should be made to accept either but the current interface will not be broken. If the correct database column for the `:column` option is not found, the macro method will raise an exception.
 
