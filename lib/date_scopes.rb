@@ -39,6 +39,8 @@ module DateScopes
       end
       
       define_method options[:column].to_s+'=' do |value|
+        value = value.downcase == 'true' if value.is_a? String
+        
         if value && !self[column_name]
 
           self[column_name] = Time.now

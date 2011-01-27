@@ -42,9 +42,21 @@ describe DateScopes do
     it "accepts false to boolean setter and sets column as nil" do
       post = Post.new
       post.published_at = Time.now
+      post.save
       post.published_at.should_not be_nil
+      post.should be_published
       post.published = false
+      post.save
       post.published_at.should be_nil
+      post.should_not be_published
+    end
+    
+    it 'copes with string passed to boolean setter' do
+      post = Post.new
+      post.published = 'true'
+      post.should be_published
+      post.published = 'False'
+      post.should_not be_published
     end
     
     context 'when published_at is in the past' do
