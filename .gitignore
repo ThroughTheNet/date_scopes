@@ -3,4 +3,3 @@ pkg/*
 .bundle
 .yardoc
 doc
-spec/support/*.sqlite3
