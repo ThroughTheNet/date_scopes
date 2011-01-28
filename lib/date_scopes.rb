@@ -27,7 +27,7 @@ module DateScopes
       options.to_options!.reverse_merge! :column => 'published'
       column_name = "#{options[:column]}_at"
       
-      raise new ActiveRecordError("Could not find the #{column_name} column on the #{table_name} table") unless column_names.include? column_name
+      raise ActiveRecord::ActiveRecordError, "Could not find the #{column_name} column on the #{table_name} table" unless column_names.include? column_name
       
       on_scope_sql = "#{table_name}.#{column_name} <= ?"
       
