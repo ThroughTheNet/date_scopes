@@ -19,7 +19,7 @@ Note that it does *not* depend on the whole of Rails, but is a pure ActiveRecord
 
 Say you have a model `Post` in your blog app. You want to be able to write your posts and save them, but not have them appear on the site until a certain time in the future, when they should automatically appear.
 Perhaps you have offers or coupons that need to expire after a certain date, or maybe some task has a deadline by which it must be completed.
-This gem will neaten up your model code whenever your model instances need to be divided into to groups: those of them whos date field is before `Time.now`, and those whos date field is after `Time.now`
+This gem will neaten up your model code whenever your model instances need to be divided into two groups: those of them whose date field is before `Time.now`, and those whose date field is after `Time.now`
 
 ##Functionality
 
