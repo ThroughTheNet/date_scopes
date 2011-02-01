@@ -5,7 +5,7 @@
 **Author**:           Jonathan Davies ([ThroughTheNet](http://throughthnet.com))  
 **Contact**:          [info@throughthenet.com](mailto:info@throughthenet.com)  
 **License**:          [MIT License](http://opensource.org/licenses/mit-license.php)  
-**Version**:          0.1.2  
+**Version**:          0.1.5  
 **Released**:         December 2nd 2010
 
 ##Description
