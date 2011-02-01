@@ -1,8 +1,8 @@
 #Date_Scopes - an ActiveRecord extension for automatic date-based scopes
 
 **Homepage/Github**:  [github.com/ThroughTheNet/date_scopes](https://github.com/ThroughTheNet/date_scopes)  
-**Documentation**:    [rubydoc.info](http://rubydoc.info/gems/date_scopes/0.1.2/frames)  
-**Author**:           Jonathan Davies ([ThroughTheNet](http://throughthnet.com))  
+**Documentation**:    [rubydoc.info](http://rubydoc.info/gems/date_scopes/0.1.5/frames)  
+**Author**:           Jonathan Davies ([ThroughTheNet](http://throughthenet.com))  
 **Contact**:          [info@throughthenet.com](mailto:info@throughthenet.com)  
 **License**:          [MIT License](http://opensource.org/licenses/mit-license.php)  
 **Version**:          0.1.5  
