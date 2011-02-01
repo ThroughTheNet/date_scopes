@@ -59,6 +59,22 @@ describe DateScopes do
       post.should_not be_published
     end
     
+    it 'copes with integer as string passed to boolean setter' do
+      post = Post.new
+      post.published = '1'
+      post.should be_published
+      post.published = '0'
+      post.should_not be_published
+    end
+    
+    it 'copes with integer passed to boolean setter' do
+      post = Post.new
+      post.published = 1
+      post.should be_published
+      post.published = 0
+      post.should_not be_published
+    end
+    
     context 'when published_at is in the past' do
       before(:all) {@post = Post.create(:published_at => Time.now - 10.minutes)}
       

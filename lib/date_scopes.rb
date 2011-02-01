@@ -39,7 +39,8 @@ module DateScopes
       end
       
       define_method options[:column].to_s+'=' do |value|
-        value = value.downcase == 'true' if value.is_a? String
+        value = %w{true 1}.include? value.downcase if value.is_a? String
+        value = value == 1 if value.is_a? Fixnum
         
         if value && !self[column_name]
 
